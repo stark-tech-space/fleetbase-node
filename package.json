@@ -1,6 +1,6 @@
 {
   "name": "@stark-tech-space/fleetbase-node",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Fleetbase node API package",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",

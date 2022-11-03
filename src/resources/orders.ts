@@ -9,6 +9,10 @@ interface IDeleteOrderRequest {
   id: string;
 }
 
+interface ICancelOrderRequest {
+  id: string;
+}
+
 export class Orders {
   client: AxiosInstance;
   constructor(client: AxiosInstance) {
@@ -28,6 +32,11 @@ export class Orders {
 
   async delete(params: IDeleteOrderRequest) {
     const res = await this.client.delete(`/orders/${params.id}`);
+    return res.data;
+  }
+
+  async cancel(params: ICancelOrderRequest) {
+    const res = await this.client.delete(`/orders/${params.id}/cancel`);
     return res.data;
   }
 }

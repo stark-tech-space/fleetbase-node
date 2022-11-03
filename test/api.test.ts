@@ -71,6 +71,7 @@ describe('service quotes', () => {
 });
 
 describe('orders', () => {
+  let orderId = '';
   it('should create an order', async () => {
     // retrieve service quotes
     const resServiceQuotes = await api.serviceQuotes.get({
@@ -116,7 +117,64 @@ describe('orders', () => {
       service_quote: serviceQuoteId,
     });
 
-    console.log(resOrder);
+    orderId = resOrder.id;
     expect(resOrder).toEqual(expect.any(Object));
+  });
+
+  it.skip('should cancel an order', async () => {
+    const resCancel = await api.orders.cancel({
+      id: orderId,
+    });
+    expect(resCancel);
+  });
+
+  it('should delete an order', async () => {
+    const resServiceQuotes = await api.serviceQuotes.get({
+      service_type: 'MOTORCYCLE',
+      facilitator,
+      is_route_optimized: true,
+      schedule_at: new Date().toISOString(),
+      language: 'zh-TW',
+      waypoints: [
+        {
+          name: 'stop 1',
+          location: {
+            type: 'Point',
+            coordinates: [121.526333, 25.036688],
+          },
+          phone: '+886970699044',
+        },
+        {
+          name: 'stop 2',
+          location: {
+            type: 'Point',
+            coordinates: [121.545474, 25.035209],
+          },
+          phone: '+886970699044',
+          remarks: 'testing comments',
+        },
+        {
+          name: 'stop 3',
+          location: {
+            type: 'Point',
+            coordinates: [121.541398, 25.040692],
+          },
+          phone: '+886970699044',
+          remarks: 'testing comments again',
+        },
+      ],
+    });
+
+    const serviceQuoteId = resServiceQuotes[0].id;
+
+    // create order
+    const resOrder = await api.orders.create({
+      service_quote: serviceQuoteId,
+    });
+
+    const resDelete = await api.orders.delete({
+      id: resOrder.id,
+    });
+    expect(resDelete);
   });
 });
