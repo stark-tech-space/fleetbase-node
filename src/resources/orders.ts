@@ -2,14 +2,7 @@ import axios, { AxiosRequestConfig, AxiosPromise, AxiosResponse, AxiosInstance }
 import { CodCurrency, CodPaymentMethod } from '../types';
 
 interface ICreateOrderRequest {
-  payload: string;
-  dispatch?: boolean;
-  scheduled_at?: string;
-  driver?: string;
-  facilitator?: string;
-  customer?: string;
-  meta?: object;
-  notes?: string;
+  service_quote: `quote_${string}`;
 }
 
 export class Orders {
@@ -19,7 +12,13 @@ export class Orders {
   }
 
   async create(params: ICreateOrderRequest) {
-    const res = await this.client.post('/orders', params);
+    const res = await this.client.post(
+      '/orders',
+      {},
+      {
+        params,
+      },
+    );
     return res.data;
   }
 }

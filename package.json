@@ -1,6 +1,6 @@
 {
   "name": "@stark-tech-space/fleetbase-node",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Fleetbase node API package",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/stark-tech-space/fleetbase-node#readme",
   "devDependencies": {
+    "@types/geojson": "^7946.0.10",
     "@types/jest": "^29.2.0",
     "dotenv": "^16.0.3",
     "jest": "^29.2.2",
