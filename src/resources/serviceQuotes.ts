@@ -14,6 +14,11 @@ interface IRetrieveServiceQuotesRequest {
   facilitator: string;
   is_route_optimized: boolean;
   waypoints: IWaypoint[];
+  schedule_at?: string;
+  language?: string;
+  remarks?: string;
+  sender?: any;
+  isPODEnabled?: boolean;
 }
 
 interface IRetrieveServiceQuotesResponse {

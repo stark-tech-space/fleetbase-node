@@ -1,11 +1,14 @@
 import dotenv from 'dotenv';
 import API from '../src/api';
 
+// DO NOT CHANGE: this is the sandbox keys for lalamove, if you change it could become live because only live fleetbase keys work
+const facilitator = 'integrated_vendor_1lqnYLY';
+
 dotenv.config();
 const api = new API({
   url: 'https://api.fleetbase.io/v1',
   apiKey: process.env.API_KEY || '',
-  development: true,
+  development: false,
 });
 
 describe('places', () => {
@@ -30,8 +33,8 @@ describe('places', () => {
 describe('service quotes', () => {
   it('should retrieve service quotes', async () => {
     const res = await api.serviceQuotes.get({
-      service_type: 'VAN',
-      facilitator: 'lalamove',
+      service_type: 'MOTORCYCLE',
+      facilitator,
       is_route_optimized: true,
       waypoints: [
         {
@@ -71,9 +74,11 @@ describe('orders', () => {
   it('should create an order', async () => {
     // retrieve service quotes
     const resServiceQuotes = await api.serviceQuotes.get({
-      service_type: 'VAN',
-      facilitator: 'lalamove',
+      service_type: 'MOTORCYCLE',
+      facilitator,
       is_route_optimized: true,
+      schedule_at: new Date().toISOString(),
+      language: 'zh-TW',
       waypoints: [
         {
           name: 'stop 1',
@@ -105,7 +110,7 @@ describe('orders', () => {
     });
 
     const serviceQuoteId = resServiceQuotes[0].id;
-    console.log(serviceQuoteId);
+
     // create order
     const resOrder = await api.orders.create({
       service_quote: serviceQuoteId,

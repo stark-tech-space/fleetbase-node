@@ -5,6 +5,10 @@ interface ICreateOrderRequest {
   service_quote: `quote_${string}`;
 }
 
+interface IDeleteOrderRequest {
+  id: string;
+}
+
 export class Orders {
   client: AxiosInstance;
   constructor(client: AxiosInstance) {
@@ -19,6 +23,11 @@ export class Orders {
         params,
       },
     );
+    return res.data;
+  }
+
+  async delete(params: IDeleteOrderRequest) {
+    const res = await this.client.delete(`/orders/${params.id}`);
     return res.data;
   }
 }
