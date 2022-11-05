@@ -4,6 +4,13 @@ import { Point } from 'geojson';
 
 interface IWaypoint {
   name: string;
+  street1?: string;
+  street2?: string;
+  city?: string;
+  province?: string;
+  neighborhood?: string;
+  district?: string;
+  country?: string;
   phone?: string;
   location: Point;
   remarks?: string; //not sure if it works

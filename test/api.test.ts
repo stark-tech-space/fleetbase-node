@@ -39,26 +39,29 @@ describe('service quotes', () => {
       waypoints: [
         {
           name: 'stop 1',
+          street1: '台北市大安區信義路四段235號',
           location: {
             type: 'Point',
-            coordinates: [121.526333, 25.036688],
+            coordinates: [121.55347171831437, 25.033705734054173],
           },
           phone: '+886970699044',
         },
         {
           name: 'stop 2',
+          street1: '106台北市大安區復興南路二段11之1號',
           location: {
             type: 'Point',
-            coordinates: [121.545474, 25.035209],
+            coordinates: [121.54404003493946, 25.033768394640358],
           },
           phone: '+886970699044',
           remarks: 'testing comments',
         },
         {
           name: 'stop 3',
+          street1: '100台北市中正區杭州南路一段131巷35-1號1樓',
           location: {
             type: 'Point',
-            coordinates: [121.541398, 25.040692],
+            coordinates: [121.53007676560996, 25.036599784048644],
           },
           phone: '+886970699044',
           remarks: 'testing comments again',
@@ -83,26 +86,29 @@ describe('orders', () => {
       waypoints: [
         {
           name: 'stop 1',
+          street1: '台北市大安區信義路四段235號',
           location: {
             type: 'Point',
-            coordinates: [121.526333, 25.036688],
+            coordinates: [121.55347171831437, 25.033705734054173],
           },
           phone: '+886970699044',
         },
         {
           name: 'stop 2',
+          street1: '106台北市大安區復興南路二段11之1號',
           location: {
             type: 'Point',
-            coordinates: [121.545474, 25.035209],
+            coordinates: [121.54404003493946, 25.033768394640358],
           },
           phone: '+886970699044',
           remarks: 'testing comments',
         },
         {
           name: 'stop 3',
+          street1: '100台北市中正區杭州南路一段131巷35-1號1樓',
           location: {
             type: 'Point',
-            coordinates: [121.541398, 25.040692],
+            coordinates: [121.53007676560996, 25.036599784048644],
           },
           phone: '+886970699044',
           remarks: 'testing comments again',
@@ -138,26 +144,29 @@ describe('orders', () => {
       waypoints: [
         {
           name: 'stop 1',
+          street1: '台北市大安區信義路四段235號',
           location: {
             type: 'Point',
-            coordinates: [121.526333, 25.036688],
+            coordinates: [121.55347171831437, 25.033705734054173],
           },
           phone: '+886970699044',
         },
         {
           name: 'stop 2',
+          street1: '106台北市大安區復興南路二段11之1號',
           location: {
             type: 'Point',
-            coordinates: [121.545474, 25.035209],
+            coordinates: [121.54404003493946, 25.033768394640358],
           },
           phone: '+886970699044',
           remarks: 'testing comments',
         },
         {
           name: 'stop 3',
+          street1: '100台北市中正區杭州南路一段131巷35-1號1樓',
           location: {
             type: 'Point',
-            coordinates: [121.541398, 25.040692],
+            coordinates: [121.53007676560996, 25.036599784048644],
           },
           phone: '+886970699044',
           remarks: 'testing comments again',
