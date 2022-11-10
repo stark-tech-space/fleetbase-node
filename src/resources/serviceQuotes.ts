@@ -17,6 +17,7 @@ interface IWaypoint {
 }
 
 interface IRetrieveServiceQuotesRequest {
+  special_requests?: string[];
   service_type: string;
   facilitator: string;
   is_route_optimized: boolean;
